@@ -4,6 +4,11 @@ const d = new Date();
 let month = days[d.getDay()];
 document.getElementById("day").innerHTML = month;
 
-const utcTime = d.getUTCMilliseconds();
-document.getElementById("time").innerHTML = utcTime;
-console.log(utcTime)
+const displayUTCTime = () => {
+    const utcTime = document.getElementById('time');
+    const currentTime = new Date().getTime();
+    utcTime.textContent = ` ${currentTime}`;
+}
+
+displayUTCTime();
+setInterval(displayUTCTime, 1000);
